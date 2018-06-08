@@ -8,9 +8,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -81,6 +84,10 @@ public class Principal extends javax.swing.JFrame {
         arbolpeliculas = new javax.swing.JTree();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        seriesfav = new javax.swing.JComboBox<>();
+        pelisfav = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
@@ -329,21 +336,21 @@ public class Principal extends javax.swing.JFrame {
         jTabbedPane1.addTab("Series", jPanel2);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Series Favoritas");
-        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Terror");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Comedia");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Comedia");
         treeNode1.add(treeNode2);
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Drama");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Terror");
         treeNode1.add(treeNode2);
         arbolseries.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane1.setViewportView(arbolseries);
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Peliculas Favoritas");
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Terror");
-        treeNode1.add(treeNode2);
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Comedia");
         treeNode1.add(treeNode2);
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Drama");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Terror");
         treeNode1.add(treeNode2);
         arbolpeliculas.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane2.setViewportView(arbolpeliculas);
@@ -352,35 +359,66 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel15.setText("SERIES");
 
+        jButton1.setText("Agregar");
+
+        jButton2.setText("Agregar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pelisfav, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(seriesfav, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, 6)))
                 .addGap(31, 31, 31))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jLabel14)
+                .addGap(67, 67, 67)
+                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel15)
-                .addGap(110, 110, 110))
+                .addComponent(jButton2)
+                .addGap(87, 87, 87))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15)
+                    .addComponent(pelisfav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(seriesfav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(66, 66, 66))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jButton2)))
+                .addGap(29, 29, 29))
         );
 
         jTabbedPane1.addTab("Favoritas", jPanel3);
@@ -545,6 +583,7 @@ public class Principal extends javax.swing.JFrame {
         } catch (IOException ex) {
 
         }
+        llenarcombo();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -624,6 +663,7 @@ void llenarcombo(){
         Modelo.addElement(Series.get(i));
     }
 serieseditar.setModel(Modelo);
+seriesfav.setModel(Modelo);
     
 }
     
@@ -667,6 +707,25 @@ serieseditar.setModel(Modelo);
        jd_crearpelicula.pack();
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+       if( !(UsuarioGlobal.getS_Preferidas().contains(((Serie)seriesfav.getSelectedItem())))){
+           UsuarioGlobal.getS_Preferidas().add(((Serie)seriesfav.getSelectedItem()));
+       }
+       
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) arbolseries.getModel();
+            DefaultMutableTreeNode Raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+            Raiz.removeAllChildren();
+            Raiz.add( new DefaultMutableTreeNode("Comedia")); 
+            Raiz.add( new DefaultMutableTreeNode("Drama"));
+             Raiz.add( new DefaultMutableTreeNode("Terror"));
+            for(int i=0;i<UsuarioGlobal.getS_Preferidas().size();i++){
+                 DefaultMutableTreeNode p = new DefaultMutableTreeNode(UsuarioGlobal.getS_Preferidas().get(i));
+             ((DefaultMutableTreeNode) Raiz.getChildAt(UsuarioGlobal.getS_Preferidas().get(i).getCategoria())).add(p);
+            }
+            modeloArbol.reload();
+       
+    }//GEN-LAST:event_jButton2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -708,7 +767,7 @@ ArrayList <String>Subtitulos=new ArrayList();
 ArrayList <String>ActoresS=new ArrayList();
 ArrayList <String>ActoresP=new ArrayList();
 ArrayList <Integer>ID=new ArrayList();
-Usuario UsuarioGlobal;
+Usuario UsuarioGlobal=new Usuario();
 Pelicula PeliculaGlobal;
 Serie SerieGlobal;
 
@@ -723,6 +782,8 @@ Serie SerieGlobal;
     private javax.swing.JTextField directors;
     private javax.swing.JTextField duracions;
     private javax.swing.JTextField idS;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
@@ -763,8 +824,10 @@ Serie SerieGlobal;
     private javax.swing.JDialog jd_crearusuario;
     private javax.swing.JTextField n_temp;
     private javax.swing.JTextField nombres;
+    private javax.swing.JComboBox<String> pelisfav;
     private javax.swing.JTextField productoras;
     private javax.swing.JTextField ratings;
     private javax.swing.JComboBox<String> serieseditar;
+    private javax.swing.JComboBox<String> seriesfav;
     // End of variables declaration//GEN-END:variables
 }
