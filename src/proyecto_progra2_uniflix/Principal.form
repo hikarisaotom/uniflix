@@ -301,7 +301,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btneditar1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Crear"/>
+            <Property name="text" type="java.lang.String" value="Editar"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btneditar1MouseClicked"/>
@@ -563,19 +563,19 @@
                           <Component id="jScrollPane2" min="-2" pref="162" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace pref="36" max="32767" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="170" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="seriesfav" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>

@@ -30,7 +30,7 @@ public class Serie {
 
     @Override
     public String toString() {
-        return "Serie{" + "id=" + id + ", Nombre=" + Nombre + ", N_Temporadas=" + N_Temporadas + ", Categoria=" + Categoria + ", Idiomas=" + Idiomas + ", subtitulos=" + subtitulos + ", Duracion=" + Duracion + ", Rating=" + Rating + ", Comentarios=" + Comentarios + ", Productora=" + Productora + ", Director=" + Director + ", Actores=" + Actores + '}';
+        return "Serie{ Nombre:" + Nombre + "Cat:" + Categoria + '}';
     }
 
     public Serie(int id, String Nombre, int N_Temporadas, int Categoria, int Duracion, int Rating, String Productora, String Director) {

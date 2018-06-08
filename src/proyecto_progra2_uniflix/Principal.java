@@ -153,7 +153,7 @@ public class Principal extends javax.swing.JFrame {
 
         actors.setText("jTextField1");
 
-        btneditar1.setText("Crear");
+        btneditar1.setText("Editar");
         btneditar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btneditar1MouseClicked(evt);
@@ -383,14 +383,14 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
+                        .addGap(24, 24, 24)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(seriesfav, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(6, 6, 6)))
-                .addGap(31, 31, 31))
+                        .addContainerGap())))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(jButton1)
@@ -654,7 +654,22 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btncrearMouseClicked
 
     private void btneditar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btneditar1MouseClicked
-        // TODO add your handling code here:
+       SerieGlobal.setId(Integer.parseInt(idS.getText()));
+                 SerieGlobal.setNombre(nombres.getText());
+                SerieGlobal.setN_Temporadas(Integer.parseInt(n_temp.getText()));
+                SerieGlobal.setCategoria(categorias.getSelectedIndex());
+                SerieGlobal.setDuracion(Integer.parseInt(duracions.getText()));
+        SerieGlobal.setRating(Integer.parseInt(ratings.getText()));
+        JOptionPane.showMessageDialog(this, "Modificado exitosamente");
+               idS.setText("");
+        nombres.setText("");
+       n_temp.setText("");
+       categorias.setSelectedIndex(0);
+               duracions.setText("");
+       ratings.setText("");
+       productoras.setText("");
+       directors.setText("");
+       llenarcombo();
     }//GEN-LAST:event_btneditar1MouseClicked
 void llenarcombo(){
     DefaultComboBoxModel Modelo=new DefaultComboBoxModel();
