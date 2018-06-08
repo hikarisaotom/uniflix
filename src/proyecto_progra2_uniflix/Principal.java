@@ -94,8 +94,6 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
 
-        jd_crearserie.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
         jLabel1.setText("ID");
 
         jLabel2.setText("Nombre");
@@ -515,9 +513,7 @@ public class Principal extends javax.swing.JFrame {
         try {
             JFileChooser jfc = new JFileChooser();
             FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de texto", "txt");//CREAMOS EL FILTRO
-            FileNameExtensionFilter filtro2 = new FileNameExtensionFilter("Imagenes", "jpg", "png", "bmp");//CREAMOS EL FILTRO
             jfc.setFileFilter(filtro);//Lo agrega por defecto
-            jfc.addChoosableFileFilter(filtro2);//Lo agrega a la cola de filtros ya exsistentes
             int seleccion = jfc.showOpenDialog(this);
             if (seleccion == JFileChooser.APPROVE_OPTION) {
                 fichero = jfc.getSelectedFile();
@@ -526,7 +522,18 @@ public class Principal extends javax.swing.JFrame {
                 String Linea;
                 
                 while ((Linea = br.readLine()) != null) {
-                  /*AQUI SE LLENA EL ARBOL O LA LISTA DE SERIES */
+                  String[] Objetos=Linea.split(",");
+                  Serie S=new Serie();
+                  S.setId(Integer.parseInt(Objetos[0]));
+                  S.setNombre(Objetos[1]);
+                  S.setN_Temporadas(Integer.parseInt(Objetos[2]));
+                  S.setCategoria(Integer.parseInt(Objetos[3]));
+                  S.setDuracion(Integer.parseInt(Objetos[4]));
+                  S.setRating(Integer.parseInt(Objetos[5]));
+                  S.setProductora(Objetos[6]);
+                  S.setProductora(Objetos[7]);
+                  Series.add(S);
+                  
                 }
             }
         } catch (Exception e) {
@@ -559,7 +566,7 @@ public class Principal extends javax.swing.JFrame {
                 fw = new FileWriter(fichero);
                 bw = new BufferedWriter(fw);
                 for (Serie S : Series) {
-                     bw.write(S.getId()+","+S.getNombre()+","+ S.getN_Temporadas()+","+S.getCategoria()+","+ S.getDuracion()+","+S.getRating()+","+S.getProductora()+","+S.getProductora());
+                     bw.write(S.getId()+","+S.getNombre()+","+ S.getN_Temporadas()+","+S.getCategoria()+","+ S.getDuracion()+","+S.getRating()+","+S.getProductora()+","+S.getProductora()+"\n");
                 }
                 bw.flush();
                 JOptionPane.showMessageDialog(this, "El archivo ha sido creado exitosamente.");
@@ -643,8 +650,9 @@ serieseditar.setModel(Modelo);
        productoras.setText("");
        directors.setText("");
         jd_crearserie.show(true);
-       jd_crearserie.setModal(true);
+      // jd_crearserie.setModal(true);
        jd_crearserie.pack();
+       llenarcombo();
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
